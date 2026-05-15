@@ -85,19 +85,19 @@ async function main() {
   const hashedPassword = await bcrypt.hash("password123", 12)
 
   const managerUser = await prisma.user.upsert({
-    where: { username: "manager" },
+    where: { email: "manager@example.com" },
     update: {},
-    create: { username: "manager", password: hashedPassword, role: Role.MANAGER },
+    create: { email: "manager@example.com", password: hashedPassword, role: Role.MANAGER },
   })
   await prisma.user.upsert({
-    where: { username: "teamleader" },
+    where: { email: "teamleader@example.com" },
     update: {},
-    create: { username: "teamleader", password: hashedPassword, role: Role.TEAMLEADER },
+    create: { email: "teamleader@example.com", password: hashedPassword, role: Role.TEAMLEADER },
   })
   await prisma.user.upsert({
-    where: { username: "floorstaff" },
+    where: { email: "floorstaff@example.com" },
     update: {},
-    create: { username: "floorstaff", password: hashedPassword, role: Role.FLOORSTAFF },
+    create: { email: "floorstaff@example.com", password: hashedPassword, role: Role.FLOORSTAFF },
   })
 
   // Sample Movies
