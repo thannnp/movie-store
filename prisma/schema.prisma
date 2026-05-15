@@ -1,0 +1,76 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  MANAGER
+  TEAMLEADER
+  FLOORSTAFF
+}
+
+enum Rating {
+  G
+  PG
+  M
+  MA
+  R
+}
+
+model User {
+  id             String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  username       String         @unique
+  password       String
+  role           Role
+  createdAt      DateTime       @default(now())
+  movies         Movie[]
+  roleDefinition RoleDefinition @relation(fields: [role], references: [name])
+
+  @@map("users")
+}
+
+model Movie {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title        String
+  yearReleased Int
+  rating       Rating
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  createdBy    String   @db.Uuid
+  user         User     @relation(fields: [createdBy], references: [id])
+
+  @@map("movies")
+}
+
+model Permission {
+  id              Int              @id @default(autoincrement())
+  action          String
+  resource        String
+  rolePermissions RolePermission[]
+
+  @@unique([action, resource])
+  @@map("permissions")
+}
+
+model RoleDefinition {
+  id              Int              @id @default(autoincrement())
+  name            Role             @unique
+  rolePermissions RolePermission[]
+  users           User[]
+
+  @@map("role_definitions")
+}
+
+model RolePermission {
+  id           Int            @id @default(autoincrement())
+  roleId       Int
+  permissionId Int
+  role         RoleDefinition @relation(fields: [roleId], references: [id])
+  permission   Permission     @relation(fields: [permissionId], references: [id])
+
+  @@unique([roleId, permissionId])
+  @@map("role_permissions")
+}
