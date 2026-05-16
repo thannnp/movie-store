@@ -78,15 +78,14 @@ npx prisma db seed                     # Seed initial data
 npm run dev                            # Run development server
 ```
 
-## Test Accounts (after seeding)
-| Username | Password | Role |
-|----------|----------|------|
-| manager | password123 | MANAGER |
-| teamleader | password123 | TEAMLEADER |
-| floorstaff | password123 | FLOORSTAFF |
+## Implementation Status
+
+See `STATUS.md` for current progress (done vs pending steps, known gaps, test accounts).
+**Always read `STATUS.md` before starting any task** to know which step to continue from.
 
 ## Key Files
 - `SPEC.md` — Full project specification
+- `STATUS.md` — Current implementation progress (done/pending steps, known gaps)
 - `CLAUDE.md` — Claude Code instructions
 - `AGENTS.md` — This file, for AI agents
 - `prisma.config.ts` — Prisma 7 datasource + migration config

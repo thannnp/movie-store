@@ -43,6 +43,6 @@ next-env.d.ts
 # AI agent files
 .claude/
 .agents/
-CLAUDE.md
-AGENTS.md
-SPEC.md
+
+/app/generated/prisma
+
