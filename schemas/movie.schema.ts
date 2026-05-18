@@ -1,5 +1,5 @@
 import { z } from "zod"
-import { Rating } from "@/app/generated/prisma"
+import { Rating } from "@/app/generated/prisma/enums"
 
 const ratingValues = Object.values(Rating) as [Rating, ...Rating[]]
 

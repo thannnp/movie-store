@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server"
-import { Role } from "@/app/generated/prisma"
+import { Role } from "@/app/generated/prisma/enums"
 import { prisma } from "@/lib/prisma"
 import { verifyJwt } from "@/lib/jwt"
 

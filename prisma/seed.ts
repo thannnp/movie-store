@@ -1,4 +1,5 @@
-import { PrismaClient, Role, Rating } from "../app/generated/prisma"
+import { PrismaClient } from "../app/generated/prisma/client"
+import { Role, Rating } from "../app/generated/prisma/enums"
 import { PrismaPg } from "@prisma/adapter-pg"
 import { Pool } from "pg"
 import { config } from "dotenv"
