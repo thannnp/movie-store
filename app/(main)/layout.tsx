@@ -30,11 +30,14 @@ function MainLayout({ children }: { children: React.ReactNode }) {
           <Film className="size-5 text-primary" />
           <span className="font-semibold">MovieStore</span>
         </div>
+
+        {/* Navigation */}
         <nav className="flex-1 p-3">
           <div className="rounded-md bg-primary/10 px-3 py-2 text-sm font-medium text-primary">
             Movies
           </div>
         </nav>
+    
         <div className="border-t p-3">
           <Button
             variant="ghost"
