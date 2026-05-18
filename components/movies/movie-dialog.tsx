@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import { useForm, Controller } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { observer } from "mobx-react-lite"
-import { Rating } from "@prisma/client"
+import { Rating } from "@/app/generated/prisma"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,

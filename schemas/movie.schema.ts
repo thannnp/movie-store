@@ -1,5 +1,5 @@
 import { z } from "zod"
-import { Rating } from "@prisma/client"
+import { Rating } from "@/app/generated/prisma"
 
 const ratingValues = Object.values(Rating) as [Rating, ...Rating[]]
 
